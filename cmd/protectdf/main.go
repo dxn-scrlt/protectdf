@@ -23,6 +23,8 @@ func main() {
 		switch command {
 		case "add":
 			err = commands.AddPassword(input)
+		case "remove":
+			err = commands.RemovePassword(input)
 		default:
 			err = errors.New("unknown command")
 		}
