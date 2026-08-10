@@ -8,7 +8,7 @@ import (
 	"github.com/dxn-scrlt/protectdf/internal/pdf"
 )
 
-func AddPassword(input string) error {
+func SetPassword(input string) error {
 	var password string
 	var retype string
 
@@ -27,7 +27,7 @@ func AddPassword(input string) error {
 
 		err = pdf.EncryptFile(input, output, password)
 		if err != nil {
-			err = errors.New("add password unsuccessful")
+			err = errors.New("set password unsuccessful")
 		}
 	}
 

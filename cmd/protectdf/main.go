@@ -21,8 +21,8 @@ func main() {
 		input := args[2]
 
 		switch command {
-		case "add":
-			err = commands.AddPassword(input)
+		case "set":
+			err = commands.SetPassword(input)
 		case "remove":
 			err = commands.RemovePassword(input)
 		default:
