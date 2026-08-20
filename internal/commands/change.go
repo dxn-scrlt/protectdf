@@ -2,21 +2,19 @@ package commands
 
 import (
 	"errors"
-	"fmt"
 	"os"
 
 	"github.com/dxn-scrlt/protectdf/internal/pdf"
+	"github.com/dxn-scrlt/protectdf/internal/prompt"
 )
 
 func ChangePassword(input string) error {
 	userErr := errors.New("change password unsuccessful")
 
-	var oldPassword string
-
-	fmt.Print("Enter current password: ")
-	fmt.Scanln(&oldPassword)
+	oldPassword, _ := prompt.Password(false, false)
 
 	tempFile, err := os.CreateTemp("", "protectdf-*.pdf")
+
 	if err != nil {
 		err = userErr
 	} else {
@@ -32,17 +30,10 @@ func ChangePassword(input string) error {
 				err = userErr
 			} else {
 				var newPassword string
-				var retype string
 
-				fmt.Print("Enter new password: ")
-				fmt.Scanln(&newPassword)
+				newPassword, err = prompt.Password(true, true)
 
-				fmt.Print("Re-enter new password: ")
-				fmt.Scanln(&retype)
-
-				if newPassword != retype {
-					err = errors.New("passwords do not match")
-				} else {
+				if err == nil {
 					output := input
 
 					err = pdf.EncryptFile(temp, output, newPassword)
