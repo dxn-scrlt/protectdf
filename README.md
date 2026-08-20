@@ -1,7 +1,6 @@
 # ProtectDF
 
-![Version](https://img.shields.io/badge/version-0.1.0-faa0a0?style=for-the-badge)
-![GitHub Releases](https://img.shields.io/badge/github-releases-121013?logo=github&style=for-the-badge)
+![Version](https://img.shields.io/badge/version-0.1.0-fa0f00?style=for-the-badge)
 ![Last Commit](https://img.shields.io/github/last-commit/dxn-scrlt/protectdf?style=for-the-badge)
 
 ## Tech Stack
